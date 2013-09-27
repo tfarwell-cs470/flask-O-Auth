@@ -4,9 +4,9 @@ from flask_oauth import OAuth
 
 # You must configure these 3 values from Google APIs console
 # https://code.google.com/apis/console
-GOOGLE_CLIENT_ID = '614744198868-qiah6olp93ac3vgbnikban1ffksqauh9.apps.googleusercontent.com'
-GOOGLE_CLIENT_SECRET = 'Fp-oOrWS5reEPDCeyd_aqTcR'
-REDIRECT_URI = '/https://127.0.0.1:5000/oauth2callback'  # one of the Redirect URIs from Google APIs console
+GOOGLE_CLIENT_ID = '614744198868.apps.googleusercontent.com'
+GOOGLE_CLIENT_SECRET = '44huM3hZWVs5Pi2WD2G2YOBQ'
+REDIRECT_URI = '/oauth2callback'  # one of the Redirect URIs from Google APIs console
 
 SECRET_KEY = 'development key'
 DEBUG = True
@@ -20,7 +20,7 @@ google = oauth.remote_app('google',
                           base_url='https://www.google.com/accounts/',
                           authorize_url='https://accounts.google.com/o/oauth2/auth',
                           request_token_url=None,
-                          request_token_params={'scope': 'https://www.googleapis.com/auth/userinfo.email',
+                          request_token_params={'scope': 'https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile',
                                                 'response_type': 'code'},
                           access_token_url='https://accounts.google.com/o/oauth2/token',
                           access_token_method='POST',
@@ -38,7 +38,7 @@ def index():
     from urllib2 import Request, urlopen, URLError
 
     headers = {'Authorization': 'OAuth '+access_token}
-    req = Request('https://www.googleapis.com/oauth2/v1/userinfo',
+    req = Request('https://www.googleapis.com/oauth2/v2/userinfo',
                   None, headers)
     try:
         res = urlopen(req)
