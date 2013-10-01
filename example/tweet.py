@@ -32,8 +32,8 @@ twitter = oauth.remote_app('twitter',
     # user interface on the twitter side.
     authorize_url='https://api.twitter.com/oauth/authenticate',
     # the consumer keys from the twitter application registry.
-    consumer_key='xBeXxg9lyElUgwZT6AZ0A',
-    consumer_secret='aawnSpNTOVuDCjx7HMh6uSXetjNN8zWLpZwCEU4LBrk'
+    consumer_key='rlelSIJhHtTx8EE5lEOEYA',
+    consumer_secret='aUZCsWKUqpHQWhpjaCVXWzugCzzCKXLeJrFvrHytw'
 )
 
 # setup sqlalchemy
